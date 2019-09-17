@@ -4,7 +4,7 @@
   "type": "magento2-module",
   "version": "1.0.0",
   "require": {
-    "php": "7.1",
+    "php": ">=7.1",
     "magento/framework": "100.0.*|100.1.*"
   },
   "repositories": {
