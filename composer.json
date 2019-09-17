@@ -1,0 +1,23 @@
+{
+  "name": "atty31/subscription",
+  "description": "Magento 2 module for subscription",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "require": {
+    "php": "7.1",
+    "magento/framework": "100.0.*|100.1.*"
+  },
+  "repositories": {
+    "type": "composer",
+    "url": "https://repo.magento.com/"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Atty31\\Subscription\\": ""
+    }
+  }
+}
