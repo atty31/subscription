@@ -39,13 +39,13 @@ class InstallData implements InstallDataInterface
         /**
          * Add attributes to the eav_attribute
          */
-        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'product_select_attribute');
+        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'subscription');
 
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Product::ENTITY,
-            'product_select_attribute',
+            'subscription',
             [
-                'group' => 'Custom Product Attribute',
+                'group' => 'General',
                 'type' => 'int',
                 'backend' => '',
                 'frontend' => '',
