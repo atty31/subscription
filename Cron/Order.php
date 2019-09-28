@@ -2,17 +2,17 @@
 namespace Atty31\Subscription\Cron;
 
 /**
- * Create quotes for subscriptions
+ * Create orders from subscriptions
  * Class Quote
  * @package Atty31\Subscription\Cron
  */
-class Quote
+class Order
 {
 
     protected $_logger;
 
     /**
-     * Quote constructor.
+     * Order constructor.
      * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(\Psr\Log\LoggerInterface $logger)
@@ -22,12 +22,12 @@ class Quote
 
     /**
      * Run cron job
-     * @cron create_quotes
+     * @cron create_orders
      * @return $this
      */
     public function execute()
     {
-        $this->_logger->info('Hello Quote');
+        $this->_logger->info('Hello Order');
         return $this;
     }
 }

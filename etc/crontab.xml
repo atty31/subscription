@@ -1,8 +1,18 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="subscription">
-        <job instance="Atty31\Subscription\Cron\Quote" method="execute" name="subscription_create_quotes_cron">
+        <job instance="Atty31\Subscription\Cron\Quote" method="execute" name="create_quotes">
             <schedule>*/10 * * * *</schedule>
+        </job>
+    </group>
+    <group id="subscription">
+        <job instance="Atty31\Subscription\Cron\Subscription" method="execute" name="create_subscriptions">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+    </group>
+    <group id="subscription">
+        <job instance="Atty31\Subscription\Cron\Order" method="execute" name="create_orders">
+            <schedule>30 2 * * *</schedule>
         </job>
     </group>
 </config>
