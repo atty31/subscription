@@ -67,10 +67,10 @@ class InstallData implements InstallDataInterface
             ]
         );
 
-        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'scheduled_at');
+        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'number_of_days');
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Product::ENTITY,
-            'scheduled_at',
+            'number_of_days',
             [
                 'type' => 'text',
                 'backend' => '',
