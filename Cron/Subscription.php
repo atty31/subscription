@@ -9,15 +9,20 @@ namespace Atty31\Subscription\Cron;
 class Subscription
 {
 
-    protected $_logger;
+    protected $logger;
+    protected $orderModel;
 
     /**
      * Subscription constructor.
      * @param \Psr\Log\LoggerInterface $logger
      */
-    public function __construct(\Psr\Log\LoggerInterface $logger)
+    public function __construct(
+        \Psr\Log\LoggerInterface $logger,
+        \Magento\Sales\Model\Order $orderModel
+    )
     {
-        $this->_logger = $logger;
+        $this->orderModel = $orderModel;
+        $this->logger = $logger;
     }
 
     /**
@@ -27,8 +32,22 @@ class Subscription
      */
     public function execute()
     {
-        $this->_logger->info('Hello Subscription');
-        return $this;
+        $orders = $this->orderModel->getCollection();
+        $orders->getSelect()->order('main_table.created_at DESC');
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+        foreach($orders as $k => $order) {
+            $items = $order->getAllVisibleItems();
+            foreach ($items as $item) {
+                /** @var \Magento\Catalog\Model\Product $product */
+                $product = $objectManager->get('Magento\Catalog\Model\Product')->load($item->getId());
+                if ($product->getResource()->getAttributeRawValue($item->getId(),'subscription',$order->getStoreId())){
+                    //add here condition
+                }
+            }
+        }
+        return;
     }
 }
 

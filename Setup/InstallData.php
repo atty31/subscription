@@ -40,7 +40,6 @@ class InstallData implements InstallDataInterface
          * Add attributes to the eav_attribute
          */
         $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'subscription');
-
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Product::ENTITY,
             'subscription',
@@ -65,6 +64,33 @@ class InstallData implements InstallDataInterface
                 'visible_on_front' => false,
                 'used_in_product_listing' => true,
                 'unique' => false
+            ]
+        );
+
+        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'scheduled_at');
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY,
+            'sample_attribute',
+            [
+                'type' => 'text',
+                'backend' => '',
+                'frontend' => '',
+                'label' => 'Number of days',
+                'input' => 'text',
+                'class' => '',
+                'source' => '',
+                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                'visible' => true,
+                'required' => true,
+                'user_defined' => false,
+                'default' => '',
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => false,
+                'used_in_product_listing' => true,
+                'unique' => false,
+                'apply_to' => ''
             ]
         );
     }
