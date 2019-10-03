@@ -11,18 +11,23 @@ class Subscription
 
     protected $logger;
     protected $orderModel;
+    protected $productCollection;
 
     /**
      * Subscription constructor.
      * @param \Psr\Log\LoggerInterface $logger
+     * @param \Magento\Sales\Model\Order $orderModel
+     * @param \Magento\Catalog\Model\Product $productCollection
      */
     public function __construct(
         \Psr\Log\LoggerInterface $logger,
-        \Magento\Sales\Model\Order $orderModel
+        \Magento\Sales\Model\Order $orderModel,
+        \Magento\Catalog\Model\Product $productCollection
     )
     {
         $this->orderModel = $orderModel;
         $this->logger = $logger;
+        $this->productCollection = $productCollection;
     }
 
     /**
@@ -34,20 +39,16 @@ class Subscription
     {
         $orders = $this->orderModel->getCollection();
         $orders->getSelect()->order('main_table.created_at DESC');
-
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-
         foreach($orders as $k => $order) {
             $items = $order->getAllVisibleItems();
             foreach ($items as $item) {
                 /** @var \Magento\Catalog\Model\Product $product */
-                $product = $objectManager->get('Magento\Catalog\Model\Product')->load($item->getId());
-                if ($product->getResource()->getAttributeRawValue($item->getId(),'subscription',$order->getStoreId())){
-                    //add here condition
-                }
+                $productData = $this->productCollection->load($item->getId());
+                var_dump($productData->getData()); //get all data for the ordered product
+                var_dump($productData->getSubscription()); //get subscription attribute value of the ordered product
             }
         }
-        return;
+        return $this;
     }
 }
 
