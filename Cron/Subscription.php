@@ -1,6 +1,8 @@
 <?php
 namespace Atty31\Subscription\Cron;
 
+use DateTime;
+
 /**
  * Create subscriptions for customers
  * Class Quote
@@ -39,16 +41,34 @@ class Subscription
     {
         $orders = $this->orderModel->getCollection();
         $orders->getSelect()->order('main_table.created_at DESC');
+        $subscriptionData = [];
         foreach($orders as $k => $order) {
             $items = $order->getAllVisibleItems();
             foreach ($items as $item) {
                 /** @var \Magento\Catalog\Model\Product $product */
                 $productData = $this->productCollection->load($item->getId());
-                var_dump($productData->getData()); //get all data for the ordered product
-                var_dump($productData->getSubscription()); //get subscription attribute value of the ordered product
+                if ($productData->getSubscription()){
+                    /** @var todo  check if the scheduled days is a valid one */
+                    $subscriptionData['scheduled_at'] = $this->calculateNextScheduledDate((int) $productData->getNumberOfDays());
+                    $subscriptionData['customer_id']  = (int) $order->getCustomerId();
+                    $subscriptionData['status'] = 1;
+                }
             }
         }
         return $this;
     }
+
+    /**
+     * Get next scheduled date
+     * @param int $numberOfDays
+     * @return string
+     */
+    public function calculateNextScheduledDate(int $numberOfDays) : string
+    {
+        $date = new DateTime();
+        $date->modify("+{$numberOfDays} day");
+        return $date->format('Y-m-d');
+    }
+
 }
 
