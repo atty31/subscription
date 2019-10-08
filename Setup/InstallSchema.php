@@ -53,16 +53,16 @@ class InstallSchema implements InstallSchemaInterface
                 )
                 ->addColumn(
                     'created_at',
-                    Table::TYPE_DATETIME,
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
-                    ['nullable' => false],
+                    ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
                     'Created At'
                 )
                 ->addColumn(
                     'updated_at',
-                    Table::TYPE_DATETIME,
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
-                    ['nullable' => false],
+                    ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
                     'Updated At'
                 )
                 ->addColumn(
@@ -126,16 +126,16 @@ class InstallSchema implements InstallSchemaInterface
                 )
                 ->addColumn(
                     'created_at',
-                    Table::TYPE_DATETIME,
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
-                    ['nullable' => false],
+                    ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
                     'Created At'
-                )
+                            )
                 ->addColumn(
                     'updated_at',
-                    Table::TYPE_DATETIME,
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
-                    ['nullable' => false],
+                    ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
                     'Updated At'
                 )
                 ->addColumn(

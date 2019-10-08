@@ -14,6 +14,7 @@ class Subscription
     protected $logger;
     protected $orderModel;
     protected $productCollection;
+    protected $subscriptionFactory;
 
     /**
      * Subscription constructor.
@@ -24,12 +25,14 @@ class Subscription
     public function __construct(
         \Psr\Log\LoggerInterface $logger,
         \Magento\Sales\Model\Order $orderModel,
-        \Magento\Catalog\Model\Product $productCollection
+        \Magento\Catalog\Model\Product $productCollection,
+        \Atty31\Subscription\Model\Subscription $subscriptionFactory
     )
     {
         $this->orderModel = $orderModel;
         $this->logger = $logger;
         $this->productCollection = $productCollection;
+        $this->subscriptionFactory = $subscriptionFactory;
     }
 
     /**
@@ -54,6 +57,15 @@ class Subscription
                     $subscriptionData['status'] = 1;
                 }
             }
+        }
+
+        $this->subscriptionFactory->setData($subscriptionData);
+        try {
+            $saveData = $this->subscriptionFactory->save();
+        }catch (\Exception $error){
+            /**
+             * @todo log error message
+             */
         }
         return $this;
     }
