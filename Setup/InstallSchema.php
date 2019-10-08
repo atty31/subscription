@@ -52,6 +52,13 @@ class InstallSchema implements InstallSchemaInterface
                     'Customer id'
                 )
                 ->addColumn(
+                    'original_order_entity_id',
+                    Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => false],
+                    'Order entity id'
+                )
+                ->addColumn(
                     'created_at',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
@@ -78,6 +85,15 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     ['nullable' => false, 'default' => '0'],
                     'Status'
+                )
+                ->addIndex(
+                    $installer->getIdxName(
+                        $tableName,
+                        ['original_order_entity_id'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+                    ),
+                    ['original_order_entity_id'],
+                    ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
                 )
                 ->setComment('Subscription table')
                 ->setOption('type', 'InnoDB')

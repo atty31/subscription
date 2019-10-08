@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Atty31_Subscription::main_menu" title="Subscriptions"
+             module="Atty31_Subscription" sortOrder="20"
+             resource="Atty31_Subscription::subscriptions" />
+        <add id="Atty31_Subscription::scheduler_orders" title="Scheduler orders"
+             module="Atty31_Subscription" sortOrder="1" parent="Atty31_Subscription::main_menu"
+             action="Atty31_Subscription/subscriptions/quotes" resource="Atty31_Subscription::scheduler_orders" />
+    </menu>
+</config>

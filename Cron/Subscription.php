@@ -54,6 +54,7 @@ class Subscription
                     /** @var todo  check if the scheduled days is a valid one */
                     $subscriptionData['scheduled_at'] = $this->calculateNextScheduledDate((int) $productData->getNumberOfDays());
                     $subscriptionData['customer_id']  = (int) $order->getCustomerId();
+                    $subscriptionData['original_order_entity_id']  = (int) $order->getId();
                     $subscriptionData['status'] = 1;
                 }
             }
