@@ -1,5 +1,5 @@
 <?php
-namespace Atty31\Subscription\ModelResourceModel;
+namespace Atty31\Subscription\Model\ResourceModel;
 
 
 class Subscription extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
