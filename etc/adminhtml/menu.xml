@@ -3,10 +3,16 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
     <menu>
         <add id="Atty31_Subscription::main_menu" title="Subscriptions"
-             module="Atty31_Subscription" sortOrder="20"
+             module="Atty31_Subscription" sortOrder="10"
              resource="Atty31_Subscription::subscriptions" />
+        <add id="Atty31_Subscription::view_subscriptions" title="View all subscriptions"
+             module="Atty31_Subscription" sortOrder="20" parent="Atty31_Subscription::main_menu"
+             action="Atty31_Subscription/subscriptions/list" resource="Atty31_Subscription::view_subscriptions" />
+        <add id="Atty31_Subscription::new_subscription" title="Add new subscription"
+             module="Atty31_Subscription" sortOrder="30" parent="Atty31_Subscription::main_menu"
+             action="Atty31_Subscription/subscriptions/create" resource="Atty31_Subscription::new_subscription" />
         <add id="Atty31_Subscription::scheduler_orders" title="Scheduler orders"
-             module="Atty31_Subscription" sortOrder="1" parent="Atty31_Subscription::main_menu"
+             module="Atty31_Subscription" sortOrder="40" parent="Atty31_Subscription::main_menu"
              action="Atty31_Subscription/subscriptions/quotes" resource="Atty31_Subscription::scheduler_orders" />
     </menu>
 </config>

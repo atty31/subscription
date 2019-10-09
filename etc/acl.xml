@@ -11,8 +11,14 @@
                     </resource>
                 </resource>
             </resource>
-            <resource id="Atty31_Subscription::subscriptions" title="Subscriptions" sortOrder="100">
-                <resource id="Atty31_Subscription::scheduler_orders" title="Scheduler orders" sortOrder="1" />
+            <resource id="Atty31_Subscription::view_subscriptions_list" title="View subscriptions" sortOrder="100">
+                <resource id="Atty31_Subscription::view_subscriptions" title="View subscriptions" sortOrder="1" />
+            </resource>
+            <resource id="Atty31_Subscription::new_subscription_form" title="Add new subscription" sortOrder="200">
+                <resource id="Atty31_Subscription::new_subscription" title="Add new subscription" sortOrder="2" />
+            </resource>
+            <resource id="Atty31_Subscription::scheduler_orders_list" title="Scheduler orders" sortOrder="300">
+                <resource id="Atty31_Subscription::scheduler_orders" title="Scheduler orders" sortOrder="3" />
             </resource>
         </resources>
     </acl>
