@@ -3,7 +3,8 @@
     <menu>
         <add id="Atty31_Subscription::subscriptions" title="Manage Subscriptions" module="Atty31_Subscription" sortOrder="10" resource="Atty31_Subscription::subscriptions"/>
         <add id="Atty31_Subscription::subscription" title="View Subscriptions" module="Atty31_Subscription" sortOrder="10" action="subscriptions/subscription/index" resource="Atty31_Subscription::subscription" parent="Atty31_Subscription::subscriptions"/>
-        <add id="Atty31_Subscription::add_new_subscription" title="Add New" module="Atty31_Subscription" sortOrder="20" parent="subscriptions/subscription/index" action="atty31_subscription/subscription" resource="Atty31_Subscription::add_new_subscription"/>
+        <add id="Atty31_Subscription::add_new_subscription" title="Add New" module="Atty31_Subscription" sortOrder="20"  action="subscriptions/subscription/index" resource="Atty31_Subscription::add_new_subscription" parent="Atty31_Subscription::subscriptions"/>
+        <add id="Atty31_Subscription::scheduler_orders" title="View Scheduler Orders" module="Atty31_Subscription" sortOrder="10" action="subscriptions/subscription/quote/index" resource="Atty31_Subscription::subscription" parent="Atty31_Subscription::subscriptions"/>
     </menu>
 </config>
 
