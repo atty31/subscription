@@ -67,7 +67,14 @@
         </argument>
     </dataSource>
     <columns name="atty31_subscription_columns">
-        <!--The list of columns-->
+        <!-- adding edit & delete buttons -->
+        <actionsColumn class="Atty31\Subscription\Ui\Component\Listing\Column\SubscriptionActions" name="actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </actionsColumn>
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
