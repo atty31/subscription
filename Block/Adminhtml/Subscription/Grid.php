@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Example\Block\Adminhtml\Subscription;
+namespace Atty31\Subscription\Block\Adminhtml\Subscription;
 class Grid extends \Magento\Backend\Block\Widget\Grid\Container
 {
     protected function _construct()
