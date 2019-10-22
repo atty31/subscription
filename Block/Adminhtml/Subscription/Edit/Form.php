@@ -3,15 +3,12 @@
 namespace Atty31\Subscription\Block\Adminhtml\Subscription\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
+use  Atty31\Subscription\Model\Config\Status;
 
 class Form extends Generic
 {
 
-    /**
-     * @var \Magento\Store\Model\System\Store
-     */
-    protected $_systemStore;
-
+    protected $status;
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -23,23 +20,11 @@ class Form extends Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
-        \Magento\Store\Model\System\Store $systemStore,
+        Status $status,
         array $data = []
     ) {
-        $this->_systemStore = $systemStore;
+        $this->status = $status;
         parent::__construct($context, $registry, $formFactory, $data);
-    }
-
-    /**
-     * Init form
-     *
-     * @return void
-     */
-    protected function _construct()
-    {
-        parent::_construct();
-        $this->setId('subscription_form');
-        $this->setTitle(__('Subscription Information'));
     }
 
     /**
@@ -71,14 +56,34 @@ class Form extends Generic
         $fieldset->addField(
             'customer_id',
             'text',
-            ['name' => 'customer_id', 'label' => __('Customer Id'), 'title' => __('Customer Id'), 'required' => true]
+            [
+                'name' => 'customer_id',
+                'label' => __('Customer Id'),
+                'title' => __('Customer Id'),
+                'required' => true
+            ]
         );
 
-//        $fieldset->addField(
-//            'description',
-//            'textarea',
-//            ['name' => 'description', 'label' => __('Department Description'), 'title' => __('Department Description'), 'required' => true]
-//        );
+        $fieldset->addField('scheduled_at',
+            'date',
+            [
+                'name' => 'date_to',
+                'label' => __('Scheduled At'),
+                'title' => __('Scheduled At'),
+                'date_format' => $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT),
+                'class' => 'validate-date'
+            ]
+        );
+
+        $fieldset->addField(
+            'status',
+            'select',
+            [
+                'name'      => 'status',
+                'label'     => __('Status'),
+                'options'   => $this->status->toOptionArray()
+            ]
+        );
 
         $form->setValues($model->getData());
         $form->setUseContainer(true);
