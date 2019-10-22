@@ -42,13 +42,13 @@ class Form extends Generic
             ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
         );
 
-        $form->setHtmlIdPrefix('department_');
+        $form->setHtmlIdPrefix('subscription_');
+        $form->setFieldNameSuffix('subscription');
 
         $fieldset = $form->addFieldset(
             'base_fieldset',
             ['legend' => __('General Information'), 'class' => 'fieldset-wide']
         );
-
         if ($model->getId()) {
             $fieldset->addField('id', 'hidden', ['name' => 'id']);
         }
@@ -67,7 +67,7 @@ class Form extends Generic
         $fieldset->addField('scheduled_at',
             'date',
             [
-                'name' => 'date_to',
+                'name' => 'scheduled_at',
                 'label' => __('Scheduled At'),
                 'title' => __('Scheduled At'),
                 'date_format' => $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT),
@@ -81,6 +81,7 @@ class Form extends Generic
             [
                 'name'      => 'status',
                 'label'     => __('Status'),
+                'title' => __('Status'),
                 'options'   => $this->status->toOptionArray()
             ]
         );
