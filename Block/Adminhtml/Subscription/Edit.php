@@ -63,16 +63,15 @@ class Edit extends Container
     }
 
     /**
-     * Retrieve text for header element depending on loaded news
+     * Retrieve text for header element depending on loaded subscriptions
      *
      * @return string
      */
     public function getHeaderText()
     {
-        $newsRegistry = $this->_coreRegistry->registry('subscription');
-        if ($newsRegistry->getId()) {
-            $newsTitle = $this->escapeHtml($newsRegistry->getTitle());
-            return __("Edit Subscription '%1'", $newsTitle);
+        $subscriptionRegistry = $this->_coreRegistry->registry('subscription');
+        if ($subscriptionRegistry->getId()) {
+            return __("Edit Subscription '%1'", $this->escapeHtml($subscriptionRegistry->getTitle()));
         } else {
             return __('Add Subscription');
         }

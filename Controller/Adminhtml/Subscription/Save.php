@@ -19,7 +19,7 @@ class Save extends \Magento\Backend\App\Action
                 $formData = $this->getRequest()->getParam('subscription');
                 $subscriptionModel->setData($formData);
                 try {
-                    // Save news
+                    // Save subscription
                     $subscriptionModel->save();
 
                     // Display success message
