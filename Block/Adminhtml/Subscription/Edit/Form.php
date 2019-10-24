@@ -2,6 +2,9 @@
 namespace Atty31\Subscription\Block\Adminhtml\Subscription\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
+use Magento\Backend\Block\Template\Context;
+use Magento\Framework\Registry;
+use Magento\Framework\Data\FormFactory;
 use Atty31\Subscription\Model\Config\Status;
 
 class Form extends Generic
@@ -18,9 +21,9 @@ class Form extends Generic
      * @param array $data
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\Data\FormFactory $formFactory,
+        Context $context,
+        Registry $registry,
+        FormFactory $formFactory,
         Status $status,
         array $data = []
     ) {
@@ -53,17 +56,6 @@ class Form extends Generic
         if ($model->getId()) {
             $fieldset->addField('id', 'hidden', ['name' => 'id']);
         }
-
-        $fieldset->addField(
-            'customer_id',
-            'text',
-            [
-                'name'     => 'customer_id',
-                'label'    => __('Customer Id'),
-                'title'    => __('Customer Id'),
-                'required' => true
-            ]
-        );
 
         $fieldset->addField('scheduled_at',
             'date',

@@ -42,7 +42,7 @@ class Edit extends Container
 
         parent::_construct();
 
-        $this->buttonList->update('save', 'label', __('Save'));
+        $this->buttonList->update('save', 'label', __('Save Subscription'));
         $this->buttonList->add(
             'saveandcontinue',
             [
@@ -77,23 +77,4 @@ class Edit extends Container
         }
     }
 
-    /**
-     * Prepare layout
-     *
-     * @return \Magento\Framework\View\Element\AbstractBlock
-     */
-    protected function _prepareLayout()
-    {
-        $this->_formScripts[] = "
-            function toggleEditor() {
-                if (tinyMCE.getInstanceById('post_content') == null) {
-                    tinyMCE.execCommand('mceAddControl', false, 'subscription_content');
-                } else {
-                    tinyMCE.execCommand('mceRemoveControl', false, 'subscription_content');
-                }
-            };
-        ";
-
-        return parent::_prepareLayout();
-    }
 }
