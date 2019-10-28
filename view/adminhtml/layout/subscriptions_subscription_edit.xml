@@ -7,8 +7,8 @@
     <body>
         <referenceContainer name="content">
             <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit"  name="atty31_subscription_subscription.edit"/>
-            <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\CustomerInfo" name="customer_information" template="Atty31_Subscription::customer_customer.phtml"/>
-            <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\Items" name="items_information" template="Atty31_Subscription::customer_items.phtml"/>
+            <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\CustomerInfo" name="customer_information" template="Atty31_Subscription::customer/customer.phtml"/>
+            <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\Items" name="items_information" template="Atty31_Subscription::customer/items.phtml"/>
         </referenceContainer>
     </body>
 </page>
