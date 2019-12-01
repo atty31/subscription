@@ -14,8 +14,9 @@ class Subscription extends AbstractSource
     {
         if (null === $this->_options) {
             $this->_options=[
-                ['label' => __('Enable'), 'value' => 1],
-                ['label' => __('Disable'), 'value' => 0]
+                ['label' => __('Inactive'), 'value' => 0],
+                ['label' => __('Active'), 'value' => 1],
+                ['label' => __('Paused'), 'value' => 1],
             ];
         }
         return $this->_options;

@@ -1,7 +1,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="customer_form">
-            <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\Tab\Customer\Subscriptions" name="customer_edit_tab_subscription" >
+            <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Tabs\Customer\Subscriptions" name="customer_edit_tab_subscription" >
                 <action method="setTabLabel">
                     <argument name="label" xsi:type="string">Subscriptions</argument>
                 </action>

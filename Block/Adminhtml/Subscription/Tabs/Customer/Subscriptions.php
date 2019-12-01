@@ -1,5 +1,5 @@
 <?php
-namespace Atty31\Subscription\Block\Adminhtml\Subscription\Edit\Tab\Customer;
+namespace Atty31\Subscription\Block\Adminhtml\Subscription\Tabs\Customer;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;

@@ -26,3 +26,15 @@ php bin/magento setup:di:compile
 crontab -l
 
 php bin/magento cron:run --group="subscription"
+
+
+
+
+$writer = new \Zend\Log\Writer\Stream(BP . '/var/log/test.log');
+$logger = new \Zend\Log\Logger();
+$logger->addWriter($writer);
+$logger->info("{$this->shippingMethodId}");
+
+
+6fbc33b46798431baa81c38af2b595b4
+665f0f2eabec714849c5cc82ab580760
