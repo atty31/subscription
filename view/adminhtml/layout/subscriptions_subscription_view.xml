@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <container name="root" label="Root">
-        <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Tabs\Customer\Subscription\Grid" name="subscriptions.edit.tab.customer.grid"/>
+    <container name="root">
+        <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Tabs\Customer\Subscription\Grid" name="subscriptions_edit_tab_customer_grid"/>
     </container>
 </layout>

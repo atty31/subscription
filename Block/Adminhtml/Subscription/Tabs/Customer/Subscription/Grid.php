@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Atty31\Subscription\Block\Adminhtml\Subscription\Tabs\Customer\Subscription;
 
 use Magento\Customer\Controller\RegistryConstants;
@@ -37,10 +33,8 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
         \Magento\Backend\Helper\Data $backendHelper,
         \Atty31\Subscription\Model\ResourceModel\Subscription\CollectionFactory $collectionFactory,
         \Magento\Framework\Registry $coreRegistry,
-        \Psr\Log\LoggerInterface $logger,
         array $data = []
     ) {
-        $this->_logger = $logger;
         $this->_coreRegistry = $coreRegistry;
         $this->_collectionFactory = $collectionFactory;
         parent::__construct($context, $backendHelper, $data);
@@ -132,6 +126,6 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     public function getRowUrl($row)
     {
-        return $this->getUrl('catalog/product/edit', ['id' => $row->getProductId()]);
+        return $this->getUrl('subscriptions/subscription/edit', ['id' => $row->getId()]);
     }
 }
