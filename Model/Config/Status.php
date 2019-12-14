@@ -1,9 +1,12 @@
 <?php
-
 namespace Atty31\Subscription\Model\Config;
 
 use Magento\Framework\Option\ArrayInterface;
 
+/**
+ * Class Status
+ * @package Atty31\Subscription\Model\Config
+ */
 class Status implements ArrayInterface
 {
     const DISABLED = 0;

@@ -3,6 +3,10 @@ namespace Atty31\Subscription\Model\Config\Source;
 
 use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 
+/**
+ * Class Subscription
+ * @package Atty31\Subscription\Model\Config\Source
+ */
 class Subscription extends AbstractSource
 {
     /**

@@ -1,6 +1,9 @@
 <?php
 namespace Atty31\Subscription\Model\ResourceModel\Subscription;
-
+/**
+ * Class Collection
+ * @package Atty31\Subscription\Model\ResourceModel\Subscription
+ */
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
     protected $_idFieldName = 'id';

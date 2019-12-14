@@ -1,7 +1,9 @@
 <?php
 namespace Atty31\Subscription\Model\ResourceModel;
-
-
+/**
+ * Class Quote
+ * @package Atty31\Subscription\Model\ResourceModel
+ */
 class Quote extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 

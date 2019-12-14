@@ -1,6 +1,9 @@
 <?php
 namespace Atty31\Subscription\Model;
-
+/**
+ * Class Quote
+ * @package Atty31\Subscription\Model
+ */
 class Quote extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'atty31_subscription_subscription';

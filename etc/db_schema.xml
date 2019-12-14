@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <!-- Subscription -->
+    <table comment="atty31 subscription table" engine="innodb" name="atty31_subscription" resource="default">
+        <column identity="true" name="id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+        <column name="customer_id" nullable="false" xsi:type="int"/>
+        <column name="original_order_entity_id" nullable="false" xsi:type="int"/>
+        <column name="store_id" nullable="false" xsi:type="smallint"/>
+        <column name="status" nullable="false" xsi:type="boolean"/>
+        <column name="scheduled_at" nullable="true" xsi:type="datetime"/>
+        <column name="created_at" nullable="false" xsi:type="datetime"/>
+        <column name="update_at" nullable="true" xsi:type="datetime"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="ATTY31_SUBSCRIPTION_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+        <index referenceId="ATTY31_SUBSCRIPTION_ORDER_ID" indexType="btree">
+            <column name="original_order_entity_id"/>
+        </index>
+    </table>
+
+    <!-- Subscription Items -->
+    <table comment="subscription items table" engine="innodb" name="atty31_subscription_items" resource="default">
+        <column identity="true" name="id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+        <column identity="false" name="subscription_id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+        <column name="name" nullable="false" xsi:type="text"/>
+        <column name="sku" nullable="false" xsi:type="text"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="ATTY_SUBSCRIPTION_ID"
+                    table="atty31_subscription"
+                    column="id"
+                    referenceTable="atty31_subscription"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+        <index referenceId="ATTY31_SUBSCRIPTION_SUBSCRIPTION_ID" indexType="btree">
+            <column name="subscription_id"/>
+        </index>
+    </table>
+
+    <!-- Subscription Quotes -->
+    <table comment="subscription quote table" engine="innodb" name="atty31_subscription_quote" resource="default">
+        <column identity="true" name="id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+        <column identity="false" name="subscription_id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+        <column name="quote_id" nullable="false" xsi:type="int"/>
+        <column name="created_at" nullable="false" xsi:type="datetime"/>
+        <column name="update_at" nullable="true" xsi:type="datetime"/>
+        <column name="admin_user_id" nullable="false" xsi:type="tinyint"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="ATTY_SUBSCRIPTION_ID"
+                    table="atty31_subscription"
+                    column="id"
+                    referenceTable="atty31_subscription"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+        <index referenceId="ATTY31_SUBSCRIPTION_SUBSCRIPTION_ID" indexType="btree">
+            <column name="subscription_id"/>
+        </index>
+    </table>
+</schema>

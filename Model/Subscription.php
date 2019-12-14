@@ -1,6 +1,9 @@
 <?php
 namespace Atty31\Subscription\Model;
-
+/**
+ * Class Subscription
+ * @package Atty31\Subscription\Model
+ */
 class Subscription extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'atty31_subscription_subscription';
