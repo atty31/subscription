@@ -13,4 +13,7 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="subscription_after_save" type="Atty31\Subscription\Plugin\OrderAfterSave" sortOrder="10" disabled="false" />
+    </type>
 </config>

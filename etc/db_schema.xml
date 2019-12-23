@@ -32,9 +32,9 @@
             <column name="id"/>
         </constraint>
         <constraint xsi:type="foreign"
-                    referenceId="ATTY_SUBSCRIPTION_ID"
-                    table="atty31_subscription"
-                    column="id"
+                    referenceId="ATTY_SUBSCRIPTION_SUBSCRIPTION_ENTITY_ID"
+                    table="atty31_subscription_items"
+                    column="subscription_id"
                     referenceTable="atty31_subscription"
                     referenceColumn="id"
                     onDelete="CASCADE"

@@ -13,19 +13,19 @@
 
 composer update atty31/subscription
 
-php bin/magento cache:enable  - to make it faster
-php bin/magento setup:upgrade
-php bin/magento cache:flush
-php bin/magento indexer:reindex
+bin/magento cache:enable  - to make it faster
+bin/magento setup:upgrade
+bin/magento cache:flush
+bin/magento indexer:reindex
 
-php bin/magento cron:remove
-php bin/magento cron:install
+bin/magento cron:remove
+bin/magento cron:install
 
-php bin/magento cache:flush && php bin/magento cache:clean
-php bin/magento setup:di:compile
+bin/magento cache:flush && php bin/magento cache:clean
+bin/magento setup:di:compile
 crontab -l
 
-php bin/magento cron:run --group="subscription"
+bin/magento cron:run --group="subscription"
 
 
 
