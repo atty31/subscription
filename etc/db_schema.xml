@@ -17,9 +17,9 @@
         <index referenceId="ATTY31_SUBSCRIPTION_CUSTOMER_ID" indexType="btree">
             <column name="customer_id"/>
         </index>
-        <index referenceId="ATTY31_SUBSCRIPTION_ORDER_ID" indexType="btree">
+        <constraint xsi:type="unique" referenceId="ATTY31_SUBSCRIPTION_ORGINAL_ORDER_ENTITY_ID">
             <column name="original_order_entity_id"/>
-        </index>
+        </constraint>
     </table>
 
     <!-- Subscription Items -->
