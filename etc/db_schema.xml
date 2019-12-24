@@ -10,7 +10,7 @@
         <column name="status" nullable="false" xsi:type="boolean"/>
         <column name="scheduled_at" nullable="true" xsi:type="datetime"/>
         <column name="created_at" nullable="false" xsi:type="datetime"/>
-        <column name="update_at" nullable="true" xsi:type="datetime"/>
+        <column name="updated_at" nullable="true" xsi:type="datetime"/>
         <constraint referenceId="PRIMARY" xsi:type="primary">
             <column name="id"/>
         </constraint>
@@ -50,7 +50,7 @@
         <column identity="false" name="subscription_id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
         <column name="quote_id" nullable="false" xsi:type="int"/>
         <column name="created_at" nullable="false" xsi:type="datetime"/>
-        <column name="update_at" nullable="true" xsi:type="datetime"/>
+        <column name="updated_at" nullable="true" xsi:type="datetime"/>
         <column name="admin_user_id" nullable="false" xsi:type="tinyint"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
