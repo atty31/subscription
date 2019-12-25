@@ -1,1 +1,20 @@
-sdsadsdsadasdsdd
+<?php
+$subscriptionItems = $this->getSubscriptionItemInformation();
+?>
+<div class="fieldset-wrapper customer-information">
+    <legend class="admin__legend legend">
+        <span><?= $block->escapeHtml(__('Subscription Items')) ?></span>
+    </legend>
+    <table class="admin__table-secondary">
+        <tbody>
+        <tr>
+            <th><?= $block->escapeHtml(__('Name')) ?></th>
+            <td><?= $subscriptionItems->getData('name') ?></td>
+        </tr>
+        <tr>
+            <th><?= $block->escapeHtml(__('Sku')) ?></th>
+            <td><?= $subscriptionItems->getData('sku') ?></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,3 +1,6 @@
+<?php
+$customer = $this->getCustomerInformation();
+?>
 <div class="fieldset-wrapper customer-information">
     <legend class="admin__legend legend">
         <span><?= $block->escapeHtml(__('Customer Information')) ?></span>:
@@ -7,15 +10,15 @@
         <tbody>
         <tr>
             <th><?= $block->escapeHtml(__('First Name')) ?></th>
-            <td><?= $this->getCustomerInformation()->getData('firstname') ?></td>
+            <td><?= $customer->getData('firstname') ?></td>
         </tr>
         <tr>
             <th><?= $block->escapeHtml(__('Middle Name')) ?></th>
-            <td><?= $this->getCustomerInformation()->getData('middlename') ?></td>
+            <td><?= $customer->getData('middlename') ?></td>
         </tr>
         <tr>
             <th><?= $block->escapeHtml(__('Last Name')) ?></th>
-            <td><?= $this->getCustomerInformation()->getData('lastname') ?></td>
+            <td><?= $customer->getData('lastname') ?></td>
         </tr>
         </tbody>
     </table>
