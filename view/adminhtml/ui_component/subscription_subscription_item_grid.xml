@@ -33,7 +33,7 @@
         <paging name="listing_paging"/>
     </listingToolbar>
     <columns name="product_columns" class="Magento\Catalog\Ui\Component\Listing\Columns">
-        <column name="sku" sortOrder="60">
+        <column name="sku" sortOrder="10">
             <settings>
                 <filter>text</filter>
                 <bodyTmpl>ui/grid/cells/html</bodyTmpl>
@@ -57,12 +57,19 @@
                 <label translate="true">Name</label>
             </settings>
         </column>
-        <column name="price" class="Magento\Catalog\Ui\Component\Listing\Columns\Price" sortOrder="70">
+        <column name="price" class="Magento\Catalog\Ui\Component\Listing\Columns\Price" sortOrder="40">
             <settings>
                 <addField>true</addField>
                 <filter>textRange</filter>
                 <label translate="true">Price</label>
             </settings>
         </column>
+        <actionsColumn class="Atty31\Subscription\Ui\Component\Listing\Column\SubscriptionItemsActions" name="actions" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>

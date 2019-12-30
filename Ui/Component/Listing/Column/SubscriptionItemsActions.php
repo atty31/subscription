@@ -1,12 +1,19 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: attila
+ * Date: 30.12.19
+ * Time: 16:27
+ */
 
 namespace Atty31\Subscription\Ui\Component\Listing\Column;
 
-class SubscriptionActions extends \Magento\Ui\Component\Listing\Columns\Column
+
+class SubscriptionItemsActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
-    const URL_PATH_EDIT = 'subscriptions/subscription/edit';
-    const URL_PATH_DELETE = 'subscriptions/subscription/delete';
-    const URL_PATH_PAUSE = 'subscriptions/subscription/pause';
+    const URL_PATH_VIEW_PRODUCT = 'catalog/product/edit';
+    const URL_PATH_ADD_ITEM = 'subscriptions/subscription/additems';
+
     protected $urlBuilder;
 
     /**
@@ -37,41 +44,28 @@ class SubscriptionActions extends \Magento\Ui\Component\Listing\Columns\Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
-                if (isset($item['id'])) {
+                if (isset($item['entity_id'])) {
                     $item[$this->getData('name')] = [
-                        'edit' => [
+                        'view' => [
                             'href' => $this->urlBuilder->getUrl(
-                                static::URL_PATH_EDIT,
+                                static::URL_PATH_VIEW_PRODUCT,
                                 [
-                                    'id' => $item['id']
+                                    'id' => $item['entity_id']
                                 ]
                             ),
-                            'label' => __('Edit')
+                            'label' => __('View')
                         ],
-                        'pause' => [
+                        'add' => [
                             'href' => $this->urlBuilder->getUrl(
-                                static::URL_PATH_PAUSE,
+                                static::URL_PATH_ADD_ITEM,
                                 [
-                                    'id' => $item['id']
+                                    'entity_id' => $item['entity_id']
                                 ]
                             ),
-                            'label' => __('Pause'),
+                            'label' => __('Add'),
                             'confirm' => [
-                                'title' => __('Pause "${ $.$data.title }"'),
-                                'message' => __('Are you sure you wan\'t to pause a "${ $.$data.title }" record?')
-                            ]
-                        ],
-                        'delete' => [
-                            'href' => $this->urlBuilder->getUrl(
-                                static::URL_PATH_DELETE,
-                                [
-                                    'id' => $item['id']
-                                ]
-                            ),
-                            'label' => __('Delete'),
-                            'confirm' => [
-                                'title' => __('Delete "${ $.$data.title }"'),
-                                'message' => __('Are you sure you wan\'t to delete a "${ $.$data.title }" record?')
+                                'title' => __('Add "${ $.$data.title }"'),
+                                'message' => __('Are you sure you wan\'t to add a "${ $.$data.title }" item?')
                             ]
                         ]
                     ];
