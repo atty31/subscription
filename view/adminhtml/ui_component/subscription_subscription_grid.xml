@@ -74,7 +74,7 @@
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="id">
+        <column name="id" sortOrder="10">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -83,16 +83,17 @@
                 </item>
             </argument>
         </column>
-        <column name="customer_id">
+        <column name="customer_id" class="Atty31\Subscription\Ui\Component\Listing\Column\Customer" sortOrder="20">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="sorting" xsi:type="string">asc</item>
-                    <item name="label" xsi:type="string" translate="true">Customer ID</item>
+                    <item name="label" xsi:type="string" translate="true">Customer</item>
                 </item>
             </argument>
         </column>
-        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" sortOrder="30">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -102,7 +103,7 @@
                 </item>
             </argument>
         </column>
-        <column name="scheduled_at" class="Magento\Ui\Component\Listing\Columns\Date">
+        <column name="scheduled_at" class="Magento\Ui\Component\Listing\Columns\Date" sortOrder="40">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -112,9 +113,10 @@
                 </item>
             </argument>
         </column>
-        <column name="original_order_entity_id">
+        <column name="original_order_entity_id" class="Atty31\Subscription\Ui\Component\Listing\Column\OriginalOrderEntityId" sortOrder="50">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="sorting" xsi:type="string">asc</item>
                     <item name="label" xsi:type="string" translate="true">Original Order ID</item>
@@ -122,7 +124,7 @@
             </argument>
         </column>
 
-        <column name="status" class="Atty31\Subscription\Ui\Component\Listing\Column\Status">
+        <column name="status" class="Atty31\Subscription\Ui\Component\Listing\Column\Status" sortOrder="60">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -133,7 +135,7 @@
         </column>
 
         <!-- adding edit & delete buttons -->
-        <actionsColumn class="Atty31\Subscription\Ui\Component\Listing\Column\SubscriptionActions" name="actions">
+        <actionsColumn class="Atty31\Subscription\Ui\Component\Listing\Column\SubscriptionActions" name="actions" sortOrder="70">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">id</item>
