@@ -8,10 +8,10 @@
     <settings>
         <spinner>product_columns</spinner>
         <deps>
-            <dep>subscription_subscription_item_grid.product_listing_data_source</dep>
+            <dep>subscription_subscription_item_grid.atty31_subscription_grid_item_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="product_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="atty31_subscription_grid_item_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="dataScope" xsi:type="string">filters.store_id</param>
@@ -19,7 +19,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>Magento_Catalog::products</aclResource>
-        <dataProvider class="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider" name="product_listing_data_source">
+        <dataProvider class="Atty31\Subscription\Ui\DataProvider\Product\ProductDataProvider" name="atty31_subscription_grid_item_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entity_id</primaryFieldName>
