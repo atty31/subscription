@@ -16,7 +16,7 @@ class Status implements ArrayInterface
     /**
      * @return array
      */
-    public function toOptionArray()
+    public function toOptionArray() : array
     {
         $options = [
             self::DISABLED => __('Inactive'),
@@ -25,5 +25,20 @@ class Status implements ArrayInterface
         ];
 
         return $options;
+    }
+
+    /**
+     * @param int $id
+     * @return string
+     */
+    public function getStatusLabel(int $id) : string
+    {
+        $status = [
+            '1' => 'Enabled',
+            '2' => 'Paused',
+            '0' => 'Disabled',
+        ];
+
+        return $status[$id];
     }
 }
