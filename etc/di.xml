@@ -10,6 +10,7 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="atty31_subscription_grid_data_source" xsi:type="string">Atty31\Subscription\Model\ResourceModel\Subscription\Collection</item>
+                <item name="atty31_subscription_grid_item_data_source" xsi:type="string">Atty31\Subscription\Model\ResourceModel\Items\Collection</item>
             </argument>
         </arguments>
     </type>

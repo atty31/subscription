@@ -9,6 +9,8 @@
             <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit"  name="atty31_subscription_subscription.edit"/>
             <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\CustomerInfo" name="customer_information" template="Atty31_Subscription::subscription/customer/info.phtml"/>
             <block class="Atty31\Subscription\Block\Adminhtml\Subscription\Edit\Items" name="items_information" template="Atty31_Subscription::subscription/items.phtml"/>
+
+            <uiComponent name="subscription_subscription_item_grid"/>
         </referenceContainer>
     </body>
 </page>
