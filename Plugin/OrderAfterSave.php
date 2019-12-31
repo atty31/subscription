@@ -25,7 +25,7 @@ class OrderAfterSave
     public function afterSave(\Magento\Sales\Api\OrderRepositoryInterface $orderRepo, \Magento\Sales\Api\Data\OrderInterface $order)
     {
         $items = $order->getAllVisibleItems();
-        $subscriptionItems = [];
+        $subscriptionItems = []; $numberOfDays = [];
         foreach ($items as $item) {
             /** @var \Magento\Catalog\Model\Product $product */
             $productData = $this->productCollection->load($item->getProductId());
@@ -34,8 +34,13 @@ class OrderAfterSave
                 $subscriptionItems[] = [
                     'item'  =>  $item->getData(),
                 ];
+                array_push($numberOfDays, $productData->getData('number_of_days'));
             }
         }
+
+        /** @todo add validation before submit */
+        $numberOfDays = array_unique($numberOfDays);
+        $this->validateNumberOfDays($numberOfDays);
 
         //Insert into database
         if (!empty($subscriptionItems)) {
@@ -44,6 +49,7 @@ class OrderAfterSave
             $subscriptionModel->setData('customer_id', (int)$order->getCustomerId());
             $subscriptionModel->setData('original_order_entity_id', (int)$order->getId());
             $subscriptionModel->setData('status', \Atty31\Subscription\Model\Config\Status::ENABLED);
+            $subscriptionModel->setData('number_of_days', $numberOfDays[0]); // it should have always only one item in the array
 
             $subscriptionModelId = $subscriptionModel->save();
             foreach ($subscriptionItems as $item){
@@ -68,5 +74,17 @@ class OrderAfterSave
         $date = new DateTime();
         $date->modify("+{$numberOfDays} day");
         return $date->format('Y-m-d');
+    }
+
+    /**
+     * @param array $numberOfDays
+     * @throws \Exception
+     */
+    public function validateNumberOfDays(array $numberOfDays) : void
+    {
+        if ((int) count($numberOfDays) > 1){  // check if we have different values of the `number of days` for the items
+            $numberOfDaysValues = implode(' - ', $numberOfDays);
+            throw new \Exception("All of the products should have the same `number of days`! \n The following values were given: {$numberOfDaysValues} ");
+        }
     }
 }

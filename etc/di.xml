@@ -6,6 +6,7 @@
             <argument name="resourceModel" xsi:type="string">Atty31\Subscription\Model\ResourceModel\Subscription</argument>
         </arguments>
     </virtualType>
+    <!-- display subscription and subscription item grids -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -14,6 +15,7 @@
             </argument>
         </arguments>
     </type>
+    <!-- create a subscription after the order is created -->
     <type name="Magento\Sales\Api\OrderRepositoryInterface">
         <plugin name="subscription_after_save" type="Atty31\Subscription\Plugin\OrderAfterSave" sortOrder="10" disabled="false" />
     </type>
